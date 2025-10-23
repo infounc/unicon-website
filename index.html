@@ -57,6 +57,28 @@
             }
         }
 
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes slideInUp {
             from {
                 opacity: 0;
@@ -68,22 +90,39 @@
             }
         }
 
+        @keyframes scaleInBounce {
+            0% {
+                opacity: 0;
+                transform: scale(0.3) rotate(-10deg);
+            }
+            50% {
+                transform: scale(1.05) rotate(2deg);
+            }
+            70% {
+                transform: scale(0.95) rotate(-1deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
         h1 {
-            font-size: 4rem;
+            font-size: 3rem;
             margin-bottom: 1.5rem;
             font-weight: 300;
             letter-spacing: -0.02em;
             line-height: 1.1;
-            animation: slideInUp 0.8s ease-out 0.2s both;
+            animation: fadeInDown 1s ease-out 0.3s both;
         }
 
         .subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 5rem;
+            font-size: 1rem;
+            margin-bottom: 4rem;
             color: #888;
             font-weight: 300;
             letter-spacing: 0.05em;
-            animation: slideInUp 0.8s ease-out 0.4s both;
+            animation: fadeInUp 1s ease-out 0.5s both;
         }
 
         .countdown {
@@ -92,15 +131,31 @@
             gap: 3rem;
             flex-wrap: wrap;
             margin-bottom: 4rem;
-            animation: slideInUp 0.8s ease-out 0.6s both;
         }
 
         .time-box {
             position: relative;
+            animation: scaleInBounce 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+        }
+
+        .time-box:nth-child(1) {
+            animation-delay: 0.7s;
+        }
+
+        .time-box:nth-child(2) {
+            animation-delay: 0.85s;
+        }
+
+        .time-box:nth-child(3) {
+            animation-delay: 1s;
+        }
+
+        .time-box:nth-child(4) {
+            animation-delay: 1.15s;
         }
 
         .time-box .number {
-            font-size: 5rem;
+            font-size: 3.5rem;
             font-weight: 600;
             display: block;
             margin-bottom: 0.5rem;
@@ -109,6 +164,11 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            transition: transform 0.3s ease;
+        }
+
+        .time-box:hover .number {
+            transform: scale(1.1);
         }
 
         .time-box .label {
@@ -123,8 +183,8 @@
             width: 60px;
             height: 1px;
             background: linear-gradient(90deg, transparent, #333, transparent);
-            margin: 0 auto 3rem;
-            animation: scaleIn 0.6s ease-out 0.3s both;
+            margin: 0 auto 2rem;
+            animation: scaleIn 0.6s ease-out 0.2s both;
         }
 
         @keyframes scaleIn {
@@ -142,27 +202,42 @@
             margin-top: 4rem;
             padding-top: 3rem;
             border-top: 1px solid #1a1a1a;
-            animation: slideInUp 0.8s ease-out 0.8s both;
+            animation: fadeInUp 1s ease-out 1.3s both;
         }
 
         .unicon-logo-image {
-            width: 120px;
+            width: 100px;
             height: auto;
             margin: 0 auto 1.5rem;
             display: block;
             opacity: 0.95;
             filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
-            transition: all 0.3s ease;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            animation: floatIn 1.2s ease-out 1.4s both;
         }
 
         .unicon-logo-image:hover {
             opacity: 1;
             filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        @keyframes floatIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.8);
+            }
+            60% {
+                transform: translateY(-10px) scale(1.05);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .unicon-logo {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 600;
             background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
             -webkit-background-clip: text;
@@ -170,24 +245,26 @@
             background-clip: text;
             margin-bottom: 1rem;
             letter-spacing: 0.1em;
+            animation: fadeInUp 0.8s ease-out 1.6s both;
         }
 
         .unicon-description {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto;
             font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 1.8s both;
         }
 
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .subtitle {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
                 margin-bottom: 3rem;
             }
 
@@ -197,7 +274,7 @@
             }
 
             .time-box .number {
-                font-size: 3.5rem;
+                font-size: 2.8rem;
             }
 
             .time-box .label {
@@ -205,13 +282,25 @@
             }
 
             .unicon-logo-image {
-                width: 100px;
+                width: 85px;
+            }
+
+            .unicon-logo {
+                font-size: 1.3rem;
+            }
+
+            .unicon-description {
+                font-size: 0.85rem;
             }
         }
 
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.85rem;
             }
 
             .countdown {
@@ -219,11 +308,19 @@
             }
 
             .time-box .number {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
 
             .unicon-logo-image {
-                width: 80px;
+                width: 70px;
+            }
+
+            .unicon-logo {
+                font-size: 1.2rem;
+            }
+
+            .unicon-description {
+                font-size: 0.8rem;
             }
         }
     </style>
