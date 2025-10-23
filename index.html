@@ -249,13 +249,15 @@
             opacity: 0.95;
             filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
             transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            animation: floatIn 1.2s ease-out 1.4s both;
+            animation: floatIn 1.2s ease-out 1.4s both, float3D 6s ease-in-out 2.6s infinite;
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .unicon-logo-image:hover {
             opacity: 1;
             filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
-            transform: scale(1.1) rotate(5deg);
+            animation-play-state: paused;
         }
 
         @keyframes floatIn {
@@ -269,6 +271,21 @@
             100% {
                 opacity: 1;
                 transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes float3D {
+            0%, 100% {
+                transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+            }
+            25% {
+                transform: translateY(-8px) rotateX(3deg) rotateY(-2deg);
+            }
+            50% {
+                transform: translateY(-12px) rotateX(-2deg) rotateY(3deg);
+            }
+            75% {
+                transform: translateY(-8px) rotateX(2deg) rotateY(-3deg);
             }
         }
 
