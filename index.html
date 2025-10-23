@@ -145,6 +145,22 @@
             animation: slideInUp 0.8s ease-out 0.8s both;
         }
 
+        .unicon-logo-image {
+            width: 120px;
+            height: auto;
+            margin: 0 auto 1.5rem;
+            display: block;
+            opacity: 0.95;
+            filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.1));
+            transition: all 0.3s ease;
+        }
+
+        .unicon-logo-image:hover {
+            opacity: 1;
+            filter: drop-shadow(0 0 30px rgba(255, 255, 255, 0.2));
+            transform: scale(1.05);
+        }
+
         .unicon-logo {
             font-size: 2rem;
             font-weight: 600;
@@ -187,6 +203,10 @@
             .time-box .label {
                 font-size: 0.7rem;
             }
+
+            .unicon-logo-image {
+                width: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -200,6 +220,10 @@
 
             .time-box .number {
                 font-size: 2.5rem;
+            }
+
+            .unicon-logo-image {
+                width: 80px;
             }
         }
     </style>
@@ -230,6 +254,7 @@
         </div>
 
         <div class="unicon-info">
+            <img src="unicon_logo_white.svg" alt="UNICON Logo" class="unicon-logo-image">
             <div class="unicon-logo">UNICON</div>
             <p class="unicon-description">
                 Innovative solutions for the digital future. We bring together cutting-edge technology and creative vision to deliver exceptional results.
